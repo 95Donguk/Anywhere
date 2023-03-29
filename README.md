@@ -13,12 +13,12 @@
   - 서비스를 MSA 구조로 구현합니다.
   - RestDocs로 API 명세서를 작성합니다.
   - 협업도구를 활용하여 커뮤니케이션합니다.
-    - Notion으로 프로젝트 상세 과정을 담는다.
-    - Discord로 비동기식 협업을 진행한다.
-    - 깃 메시지 규약은 [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit) 에 따른다.
-- 서비스 버전 업 방식으로 기능을 추가시킵니다.
+    - Notion으로 프로젝트 상세 과정을 담습니다.
+    - Discord로 비동기식 협업을 진행합니다.
+    - 깃 메시지 규약은 [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit) 에 따릅니다.
+- 서비스 버전 별 기능을 추가시킵니다.
   - v1 (구현 중)
-    - 숙소 예약 기능을 구현
+    - 숙소 예약 기능을 구현합니다.
   - v2 (예정)
     - 여행 스케줄링 기능을 구현합니다.
   - v3 (예정)
