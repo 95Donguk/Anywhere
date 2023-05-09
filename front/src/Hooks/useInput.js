@@ -7,3 +7,4 @@ export default (initialState = null) => {
   }, []);
   return [state, handler, setState];
 };
+//입력과 변환 동시에 해주는 Hooks
