@@ -49,6 +49,7 @@ function SignUp() {
         })
     )
     set_member_no((prev)=>prev+1);
+    navigate("/login");
   };
 
   return (
