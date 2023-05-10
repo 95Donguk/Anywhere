@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import { createGlobalStyle } from 'styled-components';
+import { Provider }from "react-redux";
+import Store from './Store/Store';
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -53,10 +55,12 @@ table {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+	<Provider store={Store}>
     <BrowserRouter basename={process.env.PUBLIC_URL}> 
     <GlobalStyle/>
     <App />
     </BrowserRouter>
+	</Provider>
   </React.StrictMode>
 );
 
