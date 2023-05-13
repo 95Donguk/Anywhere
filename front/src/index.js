@@ -5,6 +5,8 @@ import {BrowserRouter} from "react-router-dom";
 import { createGlobalStyle } from 'styled-components';
 import { Provider }from "react-redux";
 import Store from './Store/Store';
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs"
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -58,7 +60,9 @@ root.render(
 	<Provider store={Store}>
     <BrowserRouter basename={process.env.PUBLIC_URL}> 
     <GlobalStyle/>
+	<LocalizationProvider dateAdapter={AdapterDayjs}>
     <App />
+	</LocalizationProvider>
     </BrowserRouter>
 	</Provider>
   </React.StrictMode>
