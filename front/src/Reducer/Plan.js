@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState ={
+const initialState =[{
     city_no:0,
     room_no:0,
     room_type_no:0,
     host_member_no:0,
     booking_no:0,
     member_no:0,
-}
+}]
 
 const PlanSlice=createSlice({
     name:"plan",

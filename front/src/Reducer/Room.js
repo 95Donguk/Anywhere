@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState ={
+const initialState =[{
     room_no:1,
     room_type_no:"",
     city_no:"",
@@ -18,7 +18,7 @@ const initialState ={
     updated_at:"",
     deleted_at:"",
 }
-
+]
 const RoomSlice=createSlice({
     name:"room",
     initialState,

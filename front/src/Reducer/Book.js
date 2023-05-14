@@ -1,6 +1,6 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
+const initialState =[ {
     booking_no:0,
     member_no:0,
     room_no:0,
@@ -11,7 +11,7 @@ const initialState = {
     create_at:"",
     updated_at:"",
 }
-
+]
 const BookSlice = createSlice({
     name:"book",
     initialState,

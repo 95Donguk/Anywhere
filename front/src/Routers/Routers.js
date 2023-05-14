@@ -15,10 +15,10 @@ export default function Routers(){
             <Route path='/sign_up' element={<SignUp/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/profile' element={<Profile/>}/>
-            <Route path='/roominfo/:place/:id' element={<RoomInfo/>}/>
+            <Route path='/roominfo/:id/:room' element={<RoomInfo/>}/>
             <Route path='/place/:id' element={<Place/>}/>
             <Route path='/plan' element={<Plan/>}/>
-            <Route path='/payment' element={<Payment/>}/>
+            <Route path='/payment/:room' element={<Payment/>}/>
             <Route/>
         </Routes>
     )
