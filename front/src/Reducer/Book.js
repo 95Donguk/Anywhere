@@ -21,4 +21,4 @@ const BookSlice = createSlice({
           },
     }
 })
-export default BookSlice.reducer;
+export default BookSlice
