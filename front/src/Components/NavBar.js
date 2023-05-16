@@ -13,12 +13,14 @@ import {
   import ContactSupportIcon from '@mui/icons-material/ContactSupport';
   import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { AccountCircle } from "@mui/icons-material";
 
   const menuItems = [
     { text: '홈', icon: <HomeIcon />, link: '/' },
     { text: 'profile', icon: <ExploreIcon />, link:'/sign_up' },
     { text: '예약', icon: <BookIcon />, link: '/plan' },
     { text: '고객 지원', icon: <ContactSupportIcon />, link: '/support' },
+    { text: 'profile', icon: <AccountCircle/>, link: '/profile' },
   ];
 
 function NavBar(){
