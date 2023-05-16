@@ -7,6 +7,7 @@ import RoomInfo from '../Components/RoomInfo';
 import Plan from '../Components/Plan';
 import Payment from '../Components/Payment';
 import Place from '../Components/Place';
+import MyPlan from '../Components/MyPlan';
 
 export default function Routers(){
     return(
@@ -19,6 +20,7 @@ export default function Routers(){
             <Route path='/place/:id' element={<Place/>}/>
             <Route path='/plan' element={<Plan/>}/>
             <Route path='/payment/:room' element={<Payment/>}/>
+            <Route path='/my_plan' element={<MyPlan/>}/>
             <Route/>
         </Routes>
     )
