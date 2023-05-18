@@ -14,18 +14,20 @@ import {
   import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AccountCircle } from "@mui/icons-material";
+import { useSelector } from 'react-redux';
 
-  const menuItems = [
-    { text: '홈', icon: <HomeIcon />, link: '/' },
-    { text: 'profile', icon: <ExploreIcon />, link:'/sign_up' },
-    { text: '예약', icon: <BookIcon />, link: '/plan' },
-    { text: '고객 지원', icon: <ContactSupportIcon />, link: '/support' },
-    { text: 'profile', icon: <AccountCircle/>, link: '/profile' },
-  ];
+ 
 
 function NavBar(){
     const [open, setOpen] = useState(false);
+    const me = useSelector((state)=>state.user.filter((v)=>v.on === true));
 
+     const menuItems = [
+    { text: '홈', icon: <HomeIcon />, link: '/' },
+    { text: 'profile', icon: <ExploreIcon />, link:(me[0]?'/profile':'/login') },
+    { text: '예약', icon: <BookIcon />, link:  '/plan' },
+    { text: '고객 지원', icon: <ContactSupportIcon />, link: '/support' },
+  ];
     const toggleDrawer = () => {
       setOpen(!open);
     };
@@ -39,7 +41,7 @@ function NavBar(){
             component={Link}  
             button
               key={item.text}
-              to={item.link}
+              to={me[0]?item.link : "/login"}
               onClick={toggleDrawer}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>

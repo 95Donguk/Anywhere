@@ -3,7 +3,7 @@ import useInput from "../Hooks/useInput";
 
 import { useNavigate } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Grid, TextField, Button, FormControl, Typography } from '@mui/material';
 import styled from 'styled-components';
@@ -23,27 +23,31 @@ function SignUp() {
 
   const [member_name, set_member_name] = useInput('');
   const [member_email, set_member_email] = useInput('');
-  const [member_password, set_member_password] = useInput('');
+  const [member_pwd, set_member_pwd] = useInput('');
   const [check_member_password,set_check_member_password]=useState('');
   const [member_phone_num, set_member_phone_num] = useInput('');
   const [member_no,set_member_no]=useState(3);
-
+  
   const navigate = useNavigate();
 
   const dispatch =useDispatch();
 
+  const exUser = useSelector(state=>state.user);
   const handleSubmit = (event) => {
     event.preventDefault();
     // 회원가입 로직
-    if(member_password !== check_member_password){
-        alert("check password again");
+    if(exUser.map(i=>i.member_email).includes(member_email)){
+      return alert("중복된 이메일입니다.")
+    }
+    if(member_pwd !== check_member_password){
+      return  alert("check password again");
     }
     dispatch(
         UserSlice.actions.USER_SIGN_UP({
             member_no:member_no,
             member_name,
             member_email,
-            member_password,
+            member_pwd,
             member_phone_num,
             on:false,
         })
@@ -88,8 +92,8 @@ function SignUp() {
           <TextField
             label="비밀번호"
             type="password"
-            value={member_password}
-            onChange={set_member_password}
+            value={member_pwd}
+            onChange={set_member_pwd}
             required
           />
         </FormControl>

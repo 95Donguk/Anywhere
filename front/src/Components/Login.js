@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login(){
     const [member_email,set_member_email]=useInput("");
-    const [member_password,set_member_password]=useInput("");
+    const [member_pwd,set_member_pwd]=useInput("");
 
     const navigate = useNavigate();
 
@@ -32,15 +32,21 @@ function Login(){
     const handleSubmit =useCallback( 
         (event)=>{
         event.preventDefault();
-        if(!userData.map(v=>v.member_email).includes(member_email)){
-            alert("가입되지 않은 회원입니다.");
+        if(member_email === ""){
+          return alert("이메일을 입력해주세요")
         }
-        if (userData[userIndex].member_password !== member_password) {
+        if(member_pwd === ""){
+          return alert("암호를 입력해주세요")
+        }
+        if(!userData.map(v=>v.member_email).includes(member_email)){
+           return alert("가입되지 않은 회원입니다.");
+        }
+        if (userData[userIndex].member_pwd !== member_pwd) {
             return alert("잘못된 암호입니다.");
           }
-        disPatch(UserSlice.actions.USER_LOG_IN({member_email,member_password}));
+        disPatch(UserSlice.actions.USER_LOG_IN({member_email,member_pwd}));
         navigate("/");
-    },[member_email,member_password]);
+    },[member_email,member_pwd]);
     return <>
      <Container component="main" maxWidth="xs">
       <Box
@@ -79,8 +85,8 @@ function Login(){
           required
           fullWidth
           margin="normal"
-          value={member_password}
-          onChange={set_member_password}
+          value={member_pwd}
+          onChange={set_member_pwd}
         />
         </FormControl>
         
@@ -96,7 +102,7 @@ function Login(){
             <Link> Forgot Password?</Link>
           </Grid>
           <Grid>
-            <Link>Sing Up</Link>
+            <Link component={Button} onClick={()=>{navigate("/sign_up")}}>Sign Up</Link>
           </Grid>
         </Grid>
       </Box>

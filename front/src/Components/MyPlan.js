@@ -5,7 +5,7 @@ function MyPlan(){
     const me_plan = useSelector((state)=>state.plan.filter((v)=>v.member_no === me[0].member_no));
     return<>
     <h1>{me[0].member_name}</h1>
-    <h2>{me_plan[0].city_no}</h2>
+    <h2>{me_plan[0]? me_plan[0].city_no:"플랜이 없습니다."}</h2>
     </>
 }
 export default MyPlan;

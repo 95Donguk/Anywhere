@@ -57,6 +57,17 @@ const UserSlice = createSlice({
             const index = state.map((v) => v.member_email).indexOf(action.payload.member_email);
             state[index].on = false;
           },
+          USER_CHANGE_NICKNAME: (state, action) => {
+            const { member_email, member_name } = action.payload;
+            const index = state.map((v) => v.member_email).indexOf(member_email);
+            state.splice(index, 1, {
+              member_no:"",
+              member_email: state[index].member_email,
+              member_pwd: state[index].password,
+              member_name: member_name,
+              on: true,
+            });
+          },
     },
     extraReducers:
   (builder)=>{
