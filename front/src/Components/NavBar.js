@@ -24,8 +24,8 @@ function NavBar(){
 
      const menuItems = [
     { text: '홈', icon: <HomeIcon />, link: '/' },
-    { text: 'profile', icon: <ExploreIcon />, link:(me[0]?'/profile':'/login') },
-    { text: '예약', icon: <BookIcon />, link:  '/plan' },
+    { text: 'profile', icon: <ExploreIcon />, link:me[0]?'/profile':'/login'},
+    { text: '예약', icon: <BookIcon />, link:me[0]?'/plan':'/login' },
     { text: '고객 지원', icon: <ContactSupportIcon />, link: '/support' },
   ];
     const toggleDrawer = () => {
@@ -41,7 +41,7 @@ function NavBar(){
             component={Link}  
             button
               key={item.text}
-              to={me[0]?item.link : "/login"}
+              to={item.link}
               onClick={toggleDrawer}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
